@@ -77,39 +77,3 @@ input {
     /* Adicione a margem desejada para aumentar a distância entre os campos de entrada */
 }
 
-
-.menu-button {
-    display: inline-block;
-    width: 50%;
-    /* Largura desejada */
-    height: 60px;
-    /* Altura desejada */
-    font-size: 18px;
-    background-color: rgb(226, 128, 43);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.menu-button:hover {
-    background-color: rgba(242, 122, 16, 0.442);
-}
-
-/* Estilos para o botão "Sair" */
-.botao-sair {
-    background-color: #FF5733;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-right: 10px; /* Adicione margem à direita para espaçamento */
-    text-decoration: none; /* Remove sublinhado de links */
-}
-
-/* Estilos para o botão "Sair" quando o cursor passa por cima */
-.botao-sair:hover {
-    background-color: #E64A27;
-}

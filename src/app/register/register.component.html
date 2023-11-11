@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Orange Bank - Cadastro</title>
+</head>
+<body class="centralize">
+    <h1 class="titulo">Cadastro no Orange Bank</h1>
+    <form id="cadastro-form">
+        <div class="form-group">
+            <label for="nomeCompleto">Nome:</label>
+            <input type="text" id="nomeCompleto" placeholder="Informe seu nome completo" required>
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" placeholder="Digite seu CPF válido" required>
+        </div>
+        <div class="form-group">
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" required>
+        </div>
+        <div class="form-group">
+            <label for="chavePix">Chave Pix (e-mail, telefone ou CPF):</label>
+            <input type="text" id="chavePix" placeholder="Informe sua chave Pix" required>
+        </div>
+        <div>
+            <button type="button" class="button" onclick="cadastrarCorrentista()">Cadastrar</button>
+        </div>
+    </form>
+</body>
+</html>

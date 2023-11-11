@@ -24,22 +24,19 @@ body {
     text-align: center;
 }
 
-
-.button,
-.registerbutton {
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 200px;
-    box-sizing: border-box;
-}
-
-.button {
+button {
     background-color: rgb(226, 128, 43);
     border: none;
     color: #fff;
     margin-bottom: 10px;
     /* Adicione espaçamento na parte inferior do botão "Entrar" */
+}
+
+/* Estilo CSS para alinhar o texto à direita */
+.form-group label {
+    text-align: left;
+    display: flex;
+    padding: 5px;
 }
 
 .registerbutton {
@@ -78,6 +75,40 @@ input {
 }
 
 
+.menu-button {
+    display: inline-block;
+    width: 50%;
+    /* Largura desejada */
+    height: 60px;
+    /* Altura desejada */
+    font-size: 18px;
+    background-color: rgb(226, 128, 43);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
 .menu-button:hover {
     background-color: rgba(242, 122, 16, 0.442);
+}
+
+/* Estilos para o botão "Sair" */
+.botao-sair {
+    background-color: #FF5733;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 10px;
+    /* Adicione margem à direita para espaçamento */
+    text-decoration: none;
+    /* Remove sublinhado de links */
+}
+
+/* Estilos para o botão "Sair" quando o cursor passa por cima */
+.botao-sair:hover {
+    background-color: #E64A27;
 }
