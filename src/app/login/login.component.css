@@ -42,10 +42,20 @@ body {
     /* Adicione espaçamento na parte inferior do botão "Entrar" */
 }
 
+.button:hover {
+    background-color: #ffc966; /* Cor diferente para o efeito de hover */
+}
+
+
 .registerbutton {
     background-color: white;
     border: 1px solid rgb(226, 128, 43);
     color: rgb(226, 128, 43);
+}
+.registerbutton:hover {
+    background-color: #ffc966; /* Cor diferente para o efeito de hover */
+    color: white;
+    border: none;
 }
 
 .imagem-container {

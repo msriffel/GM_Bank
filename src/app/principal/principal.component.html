@@ -3,30 +3,27 @@
 <div class="imagem-container">
   <link rel="stylesheet" href="principal.component.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <button class="sair-button" (click)="sair()">Sair</button>
 </div>
 
-<body class="centralize">
-  
-  <ul>
-    <p class="centralize">Bem vindo! Gabriel Altenhofen</p>  
-    <div>
-      <button class="menu-button">Saldo <i class="fas fa-dollar-sign"></i></button>
-    </div>
-    <div>
-      <button class="menu-button">Cartões <i class="fas fa-money-check"></i></button>
-    </div>
-    <div>
-      <button class="menu-button">Recibos <i class="fas fa-receipt"></i></button>
-    </div>
-    <div>
-      <button class="menu-button">Pix <i class="fas fa-comments-dollar"></i></button>
-    </div>
-    <div>
-      <button class="menu-button" >Meus Dados <i class="fas fa-user"></i></button>
-    </div>
-    <div>
-      <button class="menu-button" onclick="location.href='../app.component.html'" >Sair <i class="fas fa-sign-out-alt"></i></button>
-    </div>
-  </ul>
+<div class="container">
+  <p-card>
+    <div class="grid">
+      <div class="col-12 p-fluid">
+        {{nome}}
+      </div>
+      <div class="col-6 p-fluid">
+        CPF:{{cpf}}
+      </div>
 
-</body>
+    </div>
+  </p-card>
+  <p></p>
+  <p-card>
+    <div class="col-8 p-fluid">
+      <h1 [ngClass]="{'positivo': saldo >= 0, 'negativo': saldo < 0}"> {{saldo | currency:'BRL':'symbol':'1.2-2'}}
+      </h1>
+    </div>
+
+  </p-card>
+</div>

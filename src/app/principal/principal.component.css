@@ -25,29 +25,6 @@ body {
 }
 
 
-.button,
-.registerbutton {
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 200px;
-    box-sizing: border-box;
-}
-
-.button {
-    background-color: rgb(226, 128, 43);
-    border: none;
-    color: #fff;
-    margin-bottom: 10px;
-    /* Adicione espaçamento na parte inferior do botão "Entrar" */
-}
-
-.registerbutton {
-    background-color: white;
-    border: 1px solid rgb(226, 128, 43);
-    color: rgb(226, 128, 43);
-}
-
 .imagem-container {
     text-align: center;
     margin-top: auto;
@@ -74,10 +51,26 @@ input {
 
 .form-group {
     margin-bottom: 10px;
-    /* Adicione a margem desejada para aumentar a distância entre os campos de entrada */
 }
 
 
 .menu-button:hover {
     background-color: rgba(242, 122, 16, 0.442);
 }
+/* Adicione estilos para valores positivos */
+.positivo {
+    color: green; /* Defina a cor como verde para valores positivos */
+}
+
+/* Adicione estilos para valores negativos */
+.negativo {
+    color: red; /* Defina a cor como vermelho para valores negativos */
+}
+
+/* Adicione estilos para a cor vermelha e espaço antes do ícone para valores negativos */
+.red {
+    color: red;
+    margin-right: 5px; /* Ajuste a margem conforme necessário */
+}
+
+
