@@ -8,15 +8,16 @@
 <body class="centralize"> 
   <p>Bem vindo!</p>
   <div class="form-group">
-    <input type="text" [(ngModel)]="usuario" placeholder="Informe o usuário">
+    <input type="text" [(ngModel)]="usuario" placeholder="Informe o usuário" required>
   </div>
   <div class="form-group">
-    <input type="password" [(ngModel)]="senha" placeholder="Digite sua senha">
+    <input type="password" [(ngModel)]="senha" placeholder="Digite sua senha" required>
   </div>
   <div>
     <input type="button" value="Entrar" (click)="entrarSistema()" class="button">
   </div>
   <div>
-    <button type="button" class="registerbutton"  (click)="register()">Registrar</button>
+    <button type="button" class="registerbutton"  (click)="register()">Abra sua conta</button>
   </div>
 </body>
+<p-toast></p-toast>
