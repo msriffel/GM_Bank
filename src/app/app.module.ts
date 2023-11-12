@@ -18,6 +18,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PixComponent } from './pix/pix.component';
+import { ExtratoComponent } from './extrato/extrato.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { PixComponent } from './pix/pix.component';
     CardModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, MessageService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
