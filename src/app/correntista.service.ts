@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +19,12 @@ export class CorrentistaService {
   public saldo(id: number): Observable<any> {
     return this.http.get("http://localhost:8080/movimentacao/saldo/" + id);
   }
+
   public cadastrar(correntista: any): Observable<any> {
     return this.http.post("http://localhost:8080/correntista", correntista);
   }
 
+  public obterUltimoNumeroConta(): Observable<string> {
+    return this.http.get<string>("http://localhost:8080/correntista/obterUltimoNumeroConta");
+  }
 }
-
