@@ -1,15 +1,27 @@
 <div>
-    <form [formGroup]="pixForm" (ngSubmit)="realizarPix()">
-      <label for="valor">Valor:</label>
+  <h1 class="titulo">PIX
+    <i class="fas fa-home sair-button" (click)="home()" style="cursor: pointer;"></i>
+  </h1>
+</div>
+<div class="imagem-container">
+  <link rel="stylesheet" href="pix.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</div>
+<div>
+  <form [formGroup]="pixForm" (ngSubmit)="realizarPix()">
+    <label for="valor">Valor:</label>
+    <div>
       <input type="number" id="valor" formControlName="valor" />
-  
-      <label for="chave">Chave:</label>
+    </div>
+    <label for="chave">Chave:</label>
+    <div>
       <input type="text" id="chave" formControlName="chave" />
-  
-      <label for="descricao">Descrição:</label>
+    </div>
+    <label for="descricao">Descrição:</label>
+    <div>
       <input type="text" id="descricao" formControlName="descricao" />
-  
-      <button type="submit">Realizar PIX</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit">Realizar PIX</button>
+  </form>
+</div>

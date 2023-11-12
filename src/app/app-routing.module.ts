@@ -5,6 +5,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PixComponent } from './pix/pix.component';
+import { ExtratoComponent } from './extrato/extrato.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   { 
     path: 'pix', component: PixComponent 
+  },
+  { 
+    path: 'extrato', component: ExtratoComponent 
   },
 ];
 

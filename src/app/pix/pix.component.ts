@@ -3,6 +3,7 @@ import { PixService } from './pix.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { catchError, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pix',
@@ -16,8 +17,13 @@ export class PixComponent implements OnInit {
   constructor(
     private pixService: PixService,
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
+
+  home(){
+    this.router.navigate(['principal']);
+  }
 
   ngOnInit(): void {
     this.authService.getUserId().subscribe(userId => {
