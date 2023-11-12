@@ -18,6 +18,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PixComponent } from './pix/pix.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { PixComponent } from './pix/pix.component';
     CardModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

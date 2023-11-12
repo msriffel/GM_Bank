@@ -11,30 +11,39 @@ import { MessageService } from 'primeng/api';
 })
 export class LoginComponent {
 
+  usuario = '';
+  senha = '';
+
   constructor(
     private router: Router,
     private service: CorrentistaService,
     private message: MessageService
   ) { }
 
-  usuario = "";
-  senha = "";
-
   entrarSistema() {
+    if (!this.usuario || !this.senha) {
+      this.message.add({
+        severity: 'warn', summary: 'Aviso', detail: 'Por favor, preencha todos os campos.'
+      });
+      return;
+    }
 
-    this.service.login(this.usuario)
-      .subscribe(
-        (response) => {
-          if (response && response.id != null) {
-            this.service.dadosUsuario = response;
-            this.router.navigate(['principal']);
-          } else {
-            this.message.add({severity: 'warn', summary: 'Aviso', detail:'Login incorreto!'});
-          }
+    this.service.login(this.usuario).subscribe(
+      (response) => {
+        if (response && response.id != null) {
+          this.service.dadosUsuario = response;
+          this.router.navigate(['principal']);
+        } else {
+          this.message.add({ severity: 'warn', summary: 'Aviso', detail: 'Login incorreto!' });
         }
-      )
-
+      },
+      (error) => {
+        console.error('Erro ao fazer login:', error);
+        this.message.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao fazer login.' });
+      }
+    );
   }
+
   register() {
     this.router.navigate(['cadastro']);
   }
