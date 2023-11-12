@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const routes: Routes = [
   {
@@ -12,9 +12,9 @@ const routes: Routes = [
   {
     path: 'principal', component: PrincipalComponent
   },
-  {
-    path: 'register', component: RegisterComponent
-  }
+  { 
+    path: 'cadastro', component: CadastroComponent 
+  },
 ];
 
 @NgModule({

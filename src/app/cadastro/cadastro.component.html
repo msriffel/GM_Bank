@@ -1,0 +1,13 @@
+<div>
+    <h2>Cadastro de Correntista</h2>
+    <form (ngSubmit)="cadastrar()">
+      <!-- Adicione os campos do formulário conforme necessário -->
+      <label>Número da Conta: {{ numeroConta }}</label><br>
+      <label>Nome: <input [(ngModel)]="nome" name="nome" required></label><br>
+      <label>Data de Nascimento: <input type="date" [(ngModel)]="dataNascimento" name="dataNascimento" required></label><br>
+      <label>Chave Pix: <input [(ngModel)]="chavePix" name="chavePix" required></label><br>
+      <label>CPF: <input [(ngModel)]="cpf" name="cpf" required></label><br>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+  
