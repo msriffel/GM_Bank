@@ -53,30 +53,64 @@ input {
     margin-bottom: 10px;
 }
 
-
 .menu-button:hover {
     background-color: rgba(242, 122, 16, 0.442);
 }
+
 /* Adicione estilos para valores positivos */
 .positivo {
-    color: green; /* Defina a cor como verde para valores positivos */
+    color: green;
+    /* Defina a cor como verde para valores positivos */
 }
 
 /* Adicione estilos para valores negativos */
 .negativo {
-    color: red; /* Defina a cor como vermelho para valores negativos */
+    color: red;
+    /* Defina a cor como vermelho para valores negativos */
 }
 
 /* Adicione estilos para a cor vermelha e espaço antes do ícone para valores negativos */
 .red {
     color: red;
-    margin-right: 5px; /* Ajuste a margem conforme necessário */
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
 }
 
 /* Estilo para a imagem */
 .pix-icon {
-  width: 50px; /* Ajuste a largura conforme necessário */
-  height: 50px; /* Ajuste a altura conforme necessário */
-  cursor: pointer; /* Altera o cursor para indicar que é clicável */
-  margin-right: 10px; /* Ajuste a margem conforme necessário para separar do texto */
+    width: 50px;
+    /* Ajuste a largura conforme necessário */
+    height: 50px;
+    /* Ajuste a altura conforme necessário */
+    cursor: pointer;
+    /* Altera o cursor para indicar que é clicável */
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário para separar do texto */
+}
+
+.sair-button {
+    width: 25px;
+    color: white;
+    fill: white;
+}
+
+.sair-button:hover {
+    fill: red;
+    cursor: pointer;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+}
+
+.extrato-icon {
+    width: 50px;
+    /* Ajuste a largura conforme necessário */
+    height: 50px;
+    /* Ajuste a altura conforme necessário */
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário para separar do texto */
+    cursor: pointer;
+    /* Altera o cursor para indicar que é clicável */
 }

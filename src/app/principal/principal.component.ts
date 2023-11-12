@@ -38,4 +38,8 @@ export class PrincipalComponent implements OnInit {
   irParaTelaPix() {
     this.router.navigate(['pix']);
   }
+
+  irParaTelaExtrato() {
+    this.router.navigate(['extrato']);
+  }
 }
