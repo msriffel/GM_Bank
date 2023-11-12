@@ -34,4 +34,8 @@ export class PrincipalComponent implements OnInit {
   sair(){
     this.router.navigate(['']);
   }
+
+  irParaTelaPix() {
+    this.router.navigate(['pix']);
+  }
 }

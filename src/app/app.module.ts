@@ -16,6 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { PixComponent } from './pix/pix.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     PrincipalComponent,
     LoginComponent,
     CadastroComponent,
+    PixComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     ButtonModule,
     InputTextModule,
     ToastModule,
-    CardModule
+    CardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
