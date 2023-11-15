@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CorrentistaService } from '../correntista.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
+  providers: [MessageService]
 })
 
 export class CadastroComponent {
@@ -18,14 +20,16 @@ export class CadastroComponent {
   constructor(
     private correntistaService: CorrentistaService,
     private router: Router,
+    private message: MessageService
     ) {
-    // Chame a função para obter o próximo número de conta no construtor
     this.obterProximoNumeroConta();
   }
 
   cadastrar() {
     if (!this.validarCampos()) {
-      alert('Preencha todos os campos corretamente.');
+      this.message.add({
+        severity: 'warn', summary: 'Aviso!', detail: 'Por favor, preencha todos os campos.'
+      });
       return;
     }
 
@@ -41,12 +45,16 @@ export class CadastroComponent {
 
     this.correntistaService.cadastrar(correntista).subscribe(
       (response) => {
-        alert('Cadastro realizado com sucesso!');
+        this.message.add({
+          severity: 'success', summary: 'Sucesso!', detail: 'Conta criada com sucesso!'
+        });
         this.obterProximoNumeroConta();
         this.router.navigate(['']);
       },
       (error) => {
-        console.error('Erro ao cadastrar correntista', error);
+        this.message.add({
+        severity: 'error', summary: 'Erro!', detail: error
+      });
       }
     );
   }
@@ -61,7 +69,9 @@ export class CadastroComponent {
     const idade = hoje.getFullYear() - dataNascimentoDate.getFullYear();
 
     if (idade < 18) {
-      alert('Você deve ter mais de 18 anos para se cadastrar.');
+      this.message.add({
+        severity: 'warn', summary: 'Aviso', detail: "Você precisa ter mais de 18 anos de idade!"
+      });
       return false;
     }
 

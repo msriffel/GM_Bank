@@ -31,6 +31,7 @@ export class LoginComponent {
     this.service.login(this.usuario).subscribe(
       (response) => {
         if (response && response.id != null) {
+          this.message.add({ severity: 'success', summary: 'Sucesso!', detail: 'Login efetuado com sucesso!' });
           this.service.dadosUsuario = response;
           this.router.navigate(['principal']);
         } else {
@@ -42,6 +43,7 @@ export class LoginComponent {
         this.message.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao fazer login.' });
       }
     );
+    
   }
 
   register() {
