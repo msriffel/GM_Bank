@@ -114,3 +114,7 @@ input {
     cursor: pointer;
     /* Altera o cursor para indicar que é clicável */
 }
+
+h2{
+    cursor: pointer;
+}

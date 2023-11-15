@@ -12,10 +12,10 @@
   <p-card>
     <div class="grid">
       <div class="col-12 p-fluid">
-        {{nome}}
+        Bem-vindo, {{nome}}
       </div>
       <div class="col-6 p-fluid">
-        CPF:{{cpf}}
+        CPF: {{cpf}}
       </div>
 
     </div>
@@ -30,14 +30,14 @@
   <p></p>
   <p-card>
     <div class="grid">
-      <h2>
+      <h2 (click)="irParaTelaPix()">
         <img src="assets/pixicon.png" alt="Pix Icon" (click)="irParaTelaPix()" class="pix-icon">Realizar um PIX</h2>
     </div>
   </p-card>
   <p></p>  
   <p-card>
     <div class="grid">
-      <h2>
+      <h2 (click)="irParaTelaExtrato()">
         <img src="assets/extrato.png" alt="Extrato Icon" (click)="irParaTelaExtrato()" class="extrato-icon">Extratos</h2>
     </div>
   </p-card>
