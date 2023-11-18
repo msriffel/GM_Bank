@@ -8,16 +8,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </div>
 <div>
-  <form [formGroup]="pixForm" (ngSubmit)="realizarPix()">
-    <label for="valor">Valor:</label>
+  <form [formGroup]="pixForm" (ngSubmit)="realizarPix()" class="form">
+    <label class="label" for="valor">Valor:</label>
     <div>
       <input type="number" id="valor" formControlName="valor" />
     </div>
-    <label for="chave">Chave:</label>
+    <label class="label" for="chave">Chave:</label>
     <div>
       <input type="text" id="chave" formControlName="chave" />
     </div>
-    <label for="descricao">Descrição:</label>
+    <label class="label" for="descricao">Descrição:</label>
     <div>
       <input type="text" id="descricao" formControlName="descricao" />
     </div>

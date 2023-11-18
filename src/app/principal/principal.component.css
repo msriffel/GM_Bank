@@ -22,12 +22,14 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     text-align: center;
+    overflow: auto;
+    min-width: 100vh;
 }
 
 
 .imagem-container {
     text-align: center;
-    margin-top: auto;
+
 }
 
 .imagem-container img {
@@ -102,17 +104,14 @@ input {
 .grid {
     display: flex;
     align-items: center;
+    overflow: auto;
 }
 
 .extrato-icon {
     width: 50px;
-    /* Ajuste a largura conforme necessário */
     height: 50px;
-    /* Ajuste a altura conforme necessário */
     margin-right: 10px;
-    /* Ajuste a margem conforme necessário para separar do texto */
     cursor: pointer;
-    /* Altera o cursor para indicar que é clicável */
 }
 
 h2{

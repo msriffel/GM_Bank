@@ -24,7 +24,6 @@ body {
     text-align: center;
 }
 
-
 .imagem-container {
     text-align: center;
     margin-top: auto;
@@ -39,19 +38,14 @@ body {
     background-color: rgb(226, 128, 43);
     border: none;
     color: #fff;
-    margin-bottom: 20px;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .button:hover {
     background-color: #ffc966; 
 }
-
-.form-group {
-    margin-bottom: 20px; 
-}
-
 
 .form-group label {
     display: block; 
@@ -60,7 +54,7 @@ body {
 
 .form-group input {
     width: 100%; 
-    padding: 10px; 
+    padding: 7px; 
     box-sizing: border-box; 
 }
 
@@ -70,4 +64,10 @@ form {
     padding: 20px; 
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
 }
