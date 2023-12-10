@@ -4,23 +4,51 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { switchMap } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class CorrentistaService {
-
-  constructor(private http: HttpClient, private authService: AuthService) { }
-
   loginValido: boolean = false;
   dadosUsuario: any;
 
-  public login(cpf: string): Observable<any> {
-    return this.http.get("http://localhost:8080/correntista/entrar/" + cpf);
+  constructor(private http: HttpClient, private authService: AuthService) {
+    // Tente recuperar dados do usuário do localStorage ao iniciar o serviço
+    this.tryLoadUserData();
+  }
+
+  setDadosUsuario(data: any): void {
+    this.dadosUsuario = data;
+    localStorage.setItem('dadosUsuario', JSON.stringify(data));
+  }
+
+  clearDadosUsuario(): void {
+    this.dadosUsuario = null;
+    localStorage.removeItem('dadosUsuario');
+  }
+
+  private tryLoadUserData(): void {
+    // Verifique se o usuário está autenticado antes de buscar os dados
+    if (this.authService.isLoggedIn()) {
+      const storedData = localStorage.getItem('dadosUsuario');
+      if (storedData) {
+        this.dadosUsuario = JSON.parse(storedData);
+        // Se você tiver um ID de usuário, use-o para buscar dados atualizados do servidor
+        if (this.dadosUsuario.id) {
+          this.obterDadosUsuarioAutenticado().subscribe(
+            response => this.setDadosUsuario(response),
+            error => console.error('Erro ao obter dados do usuário:', error)
+          );
+        }
+      }
+    }
+  }
+
+  public login(cpf: string, senha: string): Observable<any> {
+    return this.http.post("http://localhost:8080/correntista/login", { cpf, senha });
   }
 
   public saldo(id: number): Observable<any> {
-    return this.http.get("http://localhost:8080/movimentacao/" + id);
+    return this.http.get("http://localhost:8080/movimentacao/saldo/" + id);
   }
 
   public cadastrar(correntista: any): Observable<any> {
@@ -31,10 +59,13 @@ export class CorrentistaService {
     return this.http.get<string>("http://localhost:8080/correntista/obterUltimoNumeroConta");
   }
 
+  public extrato(id: number): Observable<any[]> {
+    return this.http.get<any>("http://localhost:8080/movimentacao/extrato/" + id);
+  }
+
   // Método adicional para obter dados do usuário autenticado
   public obterDadosUsuarioAutenticado(): Observable<any> {
     return this.authService.getUserId().pipe(
-      // Use o operador switchMap para transformar o ID do usuário em dados do usuário
       switchMap(userId => this.http.get("http://localhost:8080/correntista/" + userId))
     );
   }

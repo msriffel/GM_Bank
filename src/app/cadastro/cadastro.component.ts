@@ -16,6 +16,7 @@ export class CadastroComponent {
   dataNascimento: string = '';
   chavePix: string = '';
   cpf: string = '';
+  senha: string = '';
 
   constructor(
     private correntistaService: CorrentistaService,
@@ -81,7 +82,8 @@ export class CadastroComponent {
       nome: this.nome,
       dataNascimento: this.dataNascimento,
       chavePix: this.chavePix,
-      cpf: this.cpf
+      cpf: this.cpf,
+      senha: this.senha
     };
 
     console.log('JSON da requisição:', JSON.stringify(correntista));

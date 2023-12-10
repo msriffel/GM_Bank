@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
 
 import { AuthService } from './auth.service';
 import { AppComponent } from './app.component';
@@ -18,7 +19,8 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PixComponent } from './pix/pix.component';
-import { ExtratoComponent } from './extrato/extrato.component';
+import { AuthGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -26,8 +28,8 @@ import { ExtratoComponent } from './extrato/extrato.component';
     PrincipalComponent,
     LoginComponent,
     CadastroComponent,
-    PixComponent,
-    ExtratoComponent
+    PixComponent
+
   ],
   imports: [
     BrowserModule,
@@ -39,9 +41,11 @@ import { ExtratoComponent } from './extrato/extrato.component';
     InputTextModule,
     ToastModule,
     CardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
+ 
 })
 export class AppModule { }

@@ -23,7 +23,7 @@ body {
     font-weight: bold;
     text-align: center;
     overflow: auto;
-    min-width: 100vh;
+    min-width: 200vh;
 }
 
 
@@ -117,3 +117,12 @@ input {
 h2{
     cursor: pointer;
 }
+
+.container .grid .col-12 {
+    display: block;
+  }
+  
+  .container .grid .col-12 p {
+    margin: 0;
+  }
+  
