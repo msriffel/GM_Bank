@@ -27,12 +27,11 @@ export class CorrentistaService {
   }
 
   private tryLoadUserData(): void {
-    // Verifique se o usuário está autenticado antes de buscar os dados
     if (this.authService.isLoggedIn()) {
       const storedData = localStorage.getItem('dadosUsuario');
       if (storedData) {
         this.dadosUsuario = JSON.parse(storedData);
-        // Se você tiver um ID de usuário, use-o para buscar dados atualizados do servidor
+       
         if (this.dadosUsuario.id) {
           this.obterDadosUsuarioAutenticado().subscribe(
             response => this.setDadosUsuario(response),
