@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { catchError, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-pix',
   templateUrl: './pix.component.html',
-  styleUrls: ['./pix.component.css']
+  styleUrls: ['./pix.component.css'],
+  providers: [MessageService]
 })
 export class PixComponent implements OnInit {
   pixForm!: FormGroup;
@@ -18,10 +20,11 @@ export class PixComponent implements OnInit {
     private pixService: PixService,
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
-  home(){
+  home() {
     this.router.navigate(['principal']);
   }
 
@@ -46,20 +49,20 @@ export class PixComponent implements OnInit {
   realizarPix(): void {
     console.log('Início da função realizarPix');
 
-    if (this.pixForm.valid) {
+    if (this.areAllFieldsFilled()) {
       const pixData = this.pixForm.value;
 
       this.pixService.processarPix(pixData).pipe(
         switchMap(response => {
           console.log('PIX realizado com sucesso!', response);
-          // Lógica adicional após o sucesso, se necessário
-          this.pixForm.reset(); // Limpar o formulário após o sucesso
-          return this.authService.getUserId(); // Atualizar o ID do usuário, se necessário
+          this.showSuccessNotification();
+          this.pixForm.reset();
+          return this.authService.getUserId();
         }),
         catchError(error => {
           console.error('Erro ao realizar PIX', error);
-          // Lógica adicional para tratamento de erro
-          throw error; // Rejeitar o erro para que seja tratado no próximo bloco catch
+          this.showErrorNotification();
+          throw error;
         })
       ).subscribe(
         userId => {
@@ -70,9 +73,26 @@ export class PixComponent implements OnInit {
         }
       );
     } else {
-      // Trate os campos inválidos, se necessário
+      this.showWarningNotification();
     }
 
     console.log('Fim da função realizarPix');
+  }
+
+  private areAllFieldsFilled(): boolean {
+    const formControls = this.pixForm.controls;
+    return Object.values(formControls).every(control => !!control.value);
+  }
+
+  private showSuccessNotification(): void {
+    this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'PIX realizado com sucesso!' });
+  }
+
+  private showErrorNotification(): void {
+    this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao realizar PIX.' });
+  }
+
+  private showWarningNotification(): void {
+    this.messageService.add({ severity: 'warn', summary: 'Aviso', detail: 'Por favor, preencha todos os campos.' });
   }
 }
