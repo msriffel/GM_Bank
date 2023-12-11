@@ -17,6 +17,7 @@ export class CadastroComponent {
   chavePix: string = '';
   cpf: string = '';
   senha: string = '';
+  confirmarSenha: string = '';
 
   constructor(
     private correntistaService: CorrentistaService,
@@ -74,6 +75,13 @@ export class CadastroComponent {
     };
 
     if (!this.validarCampos() || !validarCPF()) {
+      return;
+    }
+
+    if (this.senha !== this.confirmarSenha) {
+      this.message.add({
+        severity: 'warn', summary: 'Aviso!', detail: 'As senhas não coincidem.'
+      });
       return;
     }
 
