@@ -12,7 +12,7 @@ export class CorrentistaService {
   dadosUsuario: any;
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    // Tente recuperar dados do usuário do localStorage ao iniciar o serviço
+
     this.tryLoadUserData();
   }
 

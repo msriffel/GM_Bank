@@ -1,4 +1,3 @@
-// auth.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -23,7 +22,6 @@ export class AuthService {
 
   logout(): void {
     this.setAuthenticated(false, null);
-    // Limpe dados sensíveis, se houver
   }
 
   getAuthenticationState(): Observable<AuthenticationState> {

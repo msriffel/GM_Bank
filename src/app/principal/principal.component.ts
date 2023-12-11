@@ -36,7 +36,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   sair() {
-    this.service.clearDadosUsuario();
+      
     this.router.navigate(['']);
   }
 
