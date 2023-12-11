@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
-
 import { AuthService } from './auth.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
