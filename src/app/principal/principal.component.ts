@@ -16,6 +16,7 @@ export class PrincipalComponent implements OnInit {
   public extrato: any;
   public filtroPix: string = 'todos';
   public filtroMes: string = 'todos';
+  public filtroTipoTransacao: string = 'todos';
 
   constructor(
     private service: CorrentistaService, 
@@ -67,19 +68,24 @@ export class PrincipalComponent implements OnInit {
       if (this.filtroPix === 'recebido' && item.tipo !== 'Pix Recebido') {
         return false;
       }
-
+  
       if (this.filtroPix === 'enviado' && item.tipo !== 'Pix Enviado') {
         return false;
       }
-
+  
       if (this.filtroMes !== 'todos') {
         const mesExtrato = new Date(item.dataMovimentacao).getMonth() + 1;
         if (mesExtrato.toString() !== this.filtroMes) {
           return false;
         }
       }
-
+  
+      if (this.filtroTipoTransacao !== 'todos' && item.tipo !== this.filtroTipoTransacao) {
+        return false;
+      }
+  
       return true;
     });
   }
+  
 }

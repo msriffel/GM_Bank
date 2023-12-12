@@ -26,7 +26,7 @@
   <p-card>
     <div class="col-8 p-fluid">
       <h1 [ngClass]="{'positivo': saldo >= 0, 'negativo': saldo < 0}">
-        {{saldo | currency:'BRL':'symbol':'1.2-2'}}
+        <td>{{ saldo| currency:'BRL':'symbol':'1.2-2' }}</td>
       </h1>
     </div>
   </p-card>
@@ -62,9 +62,18 @@
         <option value="12">Dezembro</option>
       </select>
     </label>
+
+    <label>
+      Filtro por Tipo:
+      <select [(ngModel)]="filtroTipoTransacao">
+        <option value="todos">Todos</option>
+        <option value="C">Crédito</option>
+        <option value="D">Débito</option>
+      </select>
+    </label>
   
     <button (click)="realizarPesquisa()" class="botao-pesquisar">
-      <i class="fas fa-search"></i> Pesquisar
+      <i class="fas fa-search"></i>
     </button>
     
   </div>
