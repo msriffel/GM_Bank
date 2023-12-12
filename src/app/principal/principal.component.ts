@@ -14,8 +14,8 @@ export class PrincipalComponent implements OnInit {
   public nome: string = "";
   public saldo: number = 0;
   public extrato: any;
-  public filtroPix: string = 'todos'; // 'todos', 'recebido', 'enviado'
-  public filtroMes: string = 'todos'; // 'todos' ou um mês específico, por exemplo, '01' para janeiro
+  public filtroPix: string = 'todos';
+  public filtroMes: string = 'todos';
 
   constructor(
     private service: CorrentistaService, 

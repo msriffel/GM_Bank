@@ -63,7 +63,7 @@ select {
 
 
 .botao-pesquisar:hover {
-    background-color: #ffc966; /* Cor diferente para o efeito de hover */;
+    background-color: #ffc966;
 }
 
 .botao-pesquisar i {
