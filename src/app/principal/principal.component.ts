@@ -14,6 +14,8 @@ export class PrincipalComponent implements OnInit {
   public nome: string = "";
   public saldo: number = 0;
   public extrato: any;
+  public filtroPix: string = 'todos'; // 'todos', 'recebido', 'enviado'
+  public filtroMes: string = 'todos'; // 'todos' ou um mês específico, por exemplo, '01' para janeiro
 
   constructor(
     private service: CorrentistaService, 
@@ -36,27 +38,48 @@ export class PrincipalComponent implements OnInit {
   }
 
   sair() {
-      
     this.router.navigate(['']);
   }
 
   irParaTelaPix() {
-    // Check if the user is authenticated before navigating to 'pix'
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['pix']);
     } else {
-      // Handle unauthenticated access
       console.warn('Usuário não autenticado. Redirecionando para a tela de login.');
       this.router.navigate(['']);
     }
   }
-  
+
+  realizarPesquisa(): void {
+    this.buscarExtrato();
+  }
 
   private buscarExtrato(): void {
     let id = this.service.dadosUsuario.id;
+    this.service.extrato(id).subscribe(items => {
+      let extratoFiltrado = this.filtrarExtrato(items);
+      this.extrato = extratoFiltrado;
+    });
+  }
 
-    this.service.extrato(id).subscribe(item => {
-      this.extrato = item;
+  private filtrarExtrato(items: any[]): any[] {
+    return items.filter(item => {
+      if (this.filtroPix === 'recebido' && item.tipo !== 'Pix Recebido') {
+        return false;
+      }
+
+      if (this.filtroPix === 'enviado' && item.tipo !== 'Pix Enviado') {
+        return false;
+      }
+
+      if (this.filtroMes !== 'todos') {
+        const mesExtrato = new Date(item.dataMovimentacao).getMonth() + 1;
+        if (mesExtrato.toString() !== this.filtroMes) {
+          return false;
+        }
+      }
+
+      return true;
     });
   }
 }

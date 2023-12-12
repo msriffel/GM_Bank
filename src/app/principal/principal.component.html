@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="principal.component.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </div>
+
+
 <div class="container">
-  <p-card >
+  <p-card>
     <div class="grid">
       <div class="col-12 p-fluid">
         Bem-vindo, {{nome}}
@@ -17,13 +19,14 @@
     <div class="grid">
       <div class="col-12 p-fluid">
         CPF: {{cpf}}
-       </div>
+      </div>
     </div>
   </p-card>
   <p></p>
   <p-card>
     <div class="col-8 p-fluid">
-      <h1 [ngClass]="{'positivo': saldo >= 0, 'negativo': saldo < 0}"> {{saldo | currency:'BRL':'symbol':'1.2-2'}}
+      <h1 [ngClass]="{'positivo': saldo >= 0, 'negativo': saldo < 0}">
+        {{saldo | currency:'BRL':'symbol':'1.2-2'}}
       </h1>
     </div>
   </p-card>
@@ -31,29 +34,61 @@
   <p-card>
     <div class="grid">
       <h2 (click)="irParaTelaPix()">
-        <img src="assets/pixicon.png" alt="Pix Icon" (click)="irParaTelaPix()" class="pix-icon">Realizar um PIX</h2>
+        <img src="assets/pixicon.png" alt="Pix Icon" (click)="irParaTelaPix()" class="pix-icon">
+        Realizar um PIX
+      </h2>
     </div>
   </p-card>
-  <p></p>  
+  <p></p>
+  <div class="filtros">
+    <label>
+    </label>
+  
+    <label>
+      Filtro por Mês:
+      <select [(ngModel)]="filtroMes">
+        <option value="todos">Todos</option>
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+        <option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+        <!-- Adicione opções para os outros meses conforme necessário -->
+      </select>
+    </label>
+  
+    <button (click)="realizarPesquisa()" class="botao-pesquisar">
+      <i class="fas fa-search"></i> Pesquisar
+    </button>
+    
+  </div>
+
   <p-card>
     <p-table [value]="extrato">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Data</th>
-                <th>Historico</th>
-                <th>Valor</th>
-                <th>Tipo</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-item>
-            <tr>
-                <td>{{ item.dataMovimentacao | date:'dd/MM/yyyy' }}</td>
-                <td>{{ item.historico }}</td>
-                <td>{{ item.valor | currency }}</td>
-                <td>{{ item.tipo }}</td>
-            </tr>
-        </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Data</th>
+          <th>Historico</th>
+          <th>Valor</th>
+          <th>Tipo</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{ item.dataMovimentacao | date:'dd/MM/yyyy' }}</td>
+          <td>{{ item.historico }}</td>
+          <td>{{ item.valor | currency }}</td>
+          <td>{{ item.tipo }}</td>
+        </tr>
+      </ng-template>
     </p-table>
   </p-card>
-  <p></p>  
+  <p></p>
 </div>

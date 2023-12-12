@@ -1,3 +1,4 @@
+
 .titulo {
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -26,10 +27,8 @@ body {
     min-width: 200vh;
 }
 
-
 .imagem-container {
     text-align: center;
-
 }
 
 .imagem-container img {
@@ -37,58 +36,73 @@ body {
     height: auto;
 }
 
-input {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+
+.filtros {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.footer {
-    background-color: rgb(226, 128, 43);
+label {
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+}
+
+.botao-pesquisar {
+    background-color: #FFA500;
     color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    font-size: 12px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
 }
 
-.form-group {
-    margin-bottom: 10px;
+
+.botao-pesquisar:hover {
+    background-color: #ffc966; /* Cor diferente para o efeito de hover */;
 }
 
-.menu-button:hover {
-    background-color: rgba(242, 122, 16, 0.442);
+.botao-pesquisar i {
+    margin-right: 5px;
+    color: #fff;
 }
 
-/* Adicione estilos para valores positivos */
+p-table {
+    width: 100%;
+}
+
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
 .positivo {
     color: green;
-    /* Defina a cor como verde para valores positivos */
 }
 
-/* Adicione estilos para valores negativos */
 .negativo {
     color: red;
-    /* Defina a cor como vermelho para valores negativos */
 }
 
-/* Adicione estilos para a cor vermelha e espaço antes do ícone para valores negativos */
-.red {
-    color: red;
-    margin-right: 5px;
-    /* Ajuste a margem conforme necessário */
+
+h2 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-/* Estilo para a imagem */
 .pix-icon {
     width: 50px;
-    /* Ajuste a largura conforme necessário */
     height: 50px;
-    /* Ajuste a altura conforme necessário */
     cursor: pointer;
-    /* Altera o cursor para indicar que é clicável */
     margin-right: 10px;
-    /* Ajuste a margem conforme necessário para separar do texto */
 }
+
 
 .sair-button {
     width: 25px;
@@ -101,27 +115,9 @@ input {
     cursor: pointer;
 }
 
-.grid {
-    display: flex;
-    align-items: center;
-    overflow: auto;
+
+p-table {
+    width: 100%;
 }
 
-.extrato-icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    cursor: pointer;
-}
 
-h2{
-    cursor: pointer;
-}
-
-.container .grid .col-12 {
-    display: block;
-  }
-  
-  .container .grid .col-12 p {
-    margin: 0;
-  }

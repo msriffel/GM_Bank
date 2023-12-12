@@ -47,11 +47,9 @@ export class PixComponent implements OnInit {
   }
 
   realizarPix(): void {
-    console.log('Início da função realizarPix');
-
     if (this.areAllFieldsFilled()) {
-      const pixData = this.pixForm.value;
-
+      const pixData = { ...this.pixForm.value, descricao: this.pixForm.get('descricao')?.value };
+  
       this.pixService.processarPix(pixData).pipe(
         switchMap(response => {
           console.log('PIX realizado com sucesso!', response);
@@ -69,14 +67,11 @@ export class PixComponent implements OnInit {
           console.log('ID do usuário atualizado:', userId);
         },
         error => {
-          // Tratamento de erro adicional, se necessário
         }
       );
     } else {
       this.showWarningNotification();
     }
-
-    console.log('Fim da função realizarPix');
   }
 
   private areAllFieldsFilled(): boolean {
