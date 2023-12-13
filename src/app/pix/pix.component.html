@@ -9,11 +9,11 @@
 </div>
 <div>
   <form [formGroup]="pixForm" (ngSubmit)="realizarPix()" class="form">
-    <label class="label" for="valor">Valor:</label>
+    <label class="label" for="valor">Valor: R$</label>
     <div>
       <input type="number" id="valor" formControlName="valor" />
     </div>
-    <label class="label" for="chave">Chave:</label>
+    <label class="label" for="chave">Chave Pix:</label>
     <div>
       <input type="text" id="chave" formControlName="chave" />
     </div>
@@ -22,7 +22,7 @@
       <input type="text" id="descricao" formControlName="descricao" />
     </div>
 
-    <button type="submit">Realizar PIX</button>
+    <button type="submit">Confirmar PIX</button>
   </form>
 </div>
 <p-toast></p-toast>

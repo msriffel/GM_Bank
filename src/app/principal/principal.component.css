@@ -120,4 +120,20 @@ p-table {
     width: 100%;
 }
 
+.positivo {
+    color: green;
+  }
+  
+  .negativo {
+    color: red;
+  }
+  
+  .credito {
+    color: green;
+  }
+  
+  .debito {
+    color: red;
+  }
+
 
